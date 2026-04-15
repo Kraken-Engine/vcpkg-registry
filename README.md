@@ -1,6 +1,6 @@
 # Kraken Engine - vcpkg Registry
 
-This is the official [vcpkg](https://github.com/microsoft/vcpkg) custom registry for the **Kraken Engine**. 
+This is the official [vcpkg](https://github.com/microsoft/vcpkg) custom registry for the **Kraken Engine**.
 
 By adding this registry to your project, you can easily install and link Kraken Engine (and all of its C++ dependencies) using standard package management.
 
@@ -13,7 +13,7 @@ Create a file named `vcpkg-configuration.json` at the root of your project (next
 {
   "default-registry": {
     "kind": "builtin",
-    "baseline": "0b88aacde46a853151730fbe7d0b7ee45f4b6864" 
+    "baseline": "0b88aacde46a853151730fbe7d0b7ee45f4b6864"
   },
   "registries": [
     {
@@ -45,8 +45,16 @@ Run your standard install command:
 vcpkg install
 ```
 
-Then, link the engine in your CMakeLists.txt:
+Then, configure your project's `CMakeLists.txt` to find and link the engine. Kraken Engine requires **C++20**:
 ```cmake
+cmake_minimum_required(VERSION 3.15)
+project(MyGame LANGUAGES CXX)
+
+# Kraken Engine requires C++20
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Find the installed package
 find_package(KrakenEngine CONFIG REQUIRED)
 
 add_executable(MyGame main.cpp)
