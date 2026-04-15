@@ -10,6 +10,7 @@ vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
         -DKRAKEN_BUILD_PYTHON=OFF
+        -DSDL3_SHADERCROSS_VENDORED=OFF
 )
 
 vcpkg_cmake_install()
