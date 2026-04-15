@@ -50,5 +50,5 @@ Then, link the engine in your CMakeLists.txt:
 find_package(KrakenEngine CONFIG REQUIRED)
 
 add_executable(MyGame main.cpp)
-target_link_libraries(MyGame PRIVATE Kraken::Kraken)
+target_link_libraries(MyGame PRIVATE Kraken::KrakenEngine)
 ```
